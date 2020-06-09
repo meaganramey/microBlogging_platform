@@ -57,23 +57,20 @@ class API {
       return err;
     }
   }
-
+  // 1/10 endpoints used
   async createUser(credentials) {
     try {
-      console.log(credentials)
-      const result = await this.axiosInstance.post('/users', 
-        credentials
-      )
-      return result
-    }
-      catch (err) {
-        helpMeInstructor(err)
-        return err
-      }
+      console.log(credentials);
+      const result = await this.axiosInstance.post("/users", credentials);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
     }
   }
-
+  // 2/10 endpoints used
   
+}
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
