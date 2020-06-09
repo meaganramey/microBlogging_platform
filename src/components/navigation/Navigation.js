@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import { HomeScreen, ProfileScreen, NotFoundScreen } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
+import { SignUpFormContainer } from '../sign-up-form'
 
 export const Navigation = () => (
   <BrowserRouter>
@@ -17,6 +18,11 @@ export const Navigation = () => (
         isProtected
         path="/profiles/:username"
         component={ProfileScreen}
+      />
+      <ConnectedRoute
+        exact
+        path='/signup'
+        component={SignUpFormContainer}
       />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
