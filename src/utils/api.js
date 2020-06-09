@@ -57,7 +57,23 @@ class API {
       return err;
     }
   }
-}
+
+  async createUser(credentials) {
+    try {
+      console.log(credentials)
+      const result = await this.axiosInstance.post('/users', 
+        credentials
+      )
+      return result
+    }
+      catch (err) {
+        helpMeInstructor(err)
+        return err
+      }
+    }
+  }
+
+  
 
 // WARNING.. do not touch below this line if you want to have a good day =]
 
