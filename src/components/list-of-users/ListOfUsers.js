@@ -8,9 +8,9 @@ export const DisplayListOfUsers = ({
   listOfUsers,
   loading,
   error,
-  displayUsers,
+  users,
 }) => {
-  const [state, setState] = useState({});
+  // const [state, setState] = useState({});
   //   users: [
   //     {
   //       username: "",
@@ -26,11 +26,12 @@ export const DisplayListOfUsers = ({
   //   statusCode: 0,
   // });
   useEffect(() => {
+    console.log('hello')
     // Update the document title using the browser API
     listOfUsers();
-    setState(displayUsers);
-    console.log(state);
-    console.log("listOfUsers is this:", displayUsers);
+    // setState(displayUsers);
+    // console.log(state);
+    // console.log("listOfUsers is this:", displayUsers);
   }, []);
 
   return (
@@ -38,8 +39,7 @@ export const DisplayListOfUsers = ({
       <section className="listOfUsers">
         <h1>This is where the list of users would be:</h1>
         <ul className="unorderedListOfUsers">
-          {displayUsers &&
-            displayUsers.users.users.map((user) => {
+          {users.map((user) => {
               return (
                 <React.Fragment>
                   <div key={user.username} className="otherUsers">
