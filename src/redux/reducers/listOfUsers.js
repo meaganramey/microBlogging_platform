@@ -3,7 +3,7 @@ import { DISPLAY_USERS_SUCCESS, DISPLAY_USERS, DISPLAY_USERS_FAILURE } from "../
 
 // INITIAL STATE
 const INITIAL_STATE = {
-  users: {},
+  users: [],
   loading: false,
   error: "",
 };
@@ -18,7 +18,7 @@ export const listOfUsersReducer = (state = INITIAL_STATE, action) => {
     case DISPLAY_USERS_SUCCESS:
       return {
         ...state,
-        users: action.payload,
+        users: action.payload.users,
         loading: false,
       };
       case DISPLAY_USERS_FAILURE:

@@ -16,7 +16,7 @@ export const listOfUsers = () => async (dispatch, getState) => {
     dispatch({ type: DISPLAY_USERS });
     const payload = await api.getListOfUsers();
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+    console.log({ payload })
     dispatch({ type: DISPLAY_USERS_SUCCESS, payload });
   } catch (err) {
     dispatch({
