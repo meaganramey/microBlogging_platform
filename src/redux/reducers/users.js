@@ -13,6 +13,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
     case CREATE_USER:
       return {
         ...INITIAL_STATE,
+        // recommend that Morgan adjust
         loading: true,
       };
     case CREATE_USER_SUCCESS:
