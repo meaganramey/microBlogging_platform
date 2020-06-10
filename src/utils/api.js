@@ -69,7 +69,16 @@ class API {
     }
   }
   // 2/10 endpoints used
-  
+  async getListOfUsers() {
+    try {
+      const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+      console.log(result)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
