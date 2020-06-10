@@ -4,6 +4,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Navigation } from "./components";
 import configureStore from "./redux/configureStore";
 
+
 const { store, persistor } = configureStore();
 
 const KWITTER = {
@@ -20,3 +21,19 @@ export const App = () => (
     </PersistGate>
   </Provider>
 );
+    
+//   getUser = () => {
+//     fetch("https://kwitter-api.herokuapp.com/users")
+//       .then((response) => response.json())
+//         .then((response) => {
+//           const user = response.users[0]
+//           console.log(user)     
+//         })       
+//   }   
+
+
+
+  
+  
+
+
