@@ -34,7 +34,7 @@ class API {
 
     this.axiosInstance = axiosInstance;
   }
-
+// 5/10
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
@@ -48,7 +48,7 @@ class API {
       return err;
     }
   }
-
+// 6/10
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
@@ -60,7 +60,7 @@ class API {
   // 1/10 endpoints used
   async createUser(credentials) {
     try {
-      console.log(credentials);
+      // console.log(credentials);
       const result = await this.axiosInstance.post("/users", credentials);
       return result;
     } catch (err) {
@@ -72,6 +72,42 @@ class API {
   async getListOfUsers() {
     try {
       const result = await this.axiosInstance.get("/users?limit=100&offset=0");
+      // console.log(result)
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }  
+  // 3/10 endpoints used
+  async addProfileImage(username, profileImage) {
+    console.log(username, profileImage)
+    try {
+      const data = new FormData()
+      data.append('picture', profileImage)
+      const result = await this.axiosInstance.put("/users/"+username+"/picture", data);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+  // 4/10 endpoints used
+  async showProfileImage(username) {
+    try {
+      const result = await this.axiosInstance.get("/users/"+username+"/picture");
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+
+ // 4/10 API endpoints
+  async deleteProfile(username) {
+    try {
+      console.log(username)
+      const result = await this.axiosInstance.delete("/users/" + username) 
       console.log(result)
       return result;
     } catch (err) {

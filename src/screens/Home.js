@@ -1,16 +1,15 @@
 import React from "react";
 import { LoginFormContainer, MenuContainer, } from "../components";
-import { SignUpFormContainer } from "../components/sign-up-form";
-import Spinner from 'react-bootstrap/Spinner'
+import { Link } from 'react-router-dom'
+
+
 
 export const HomeScreen = () => (
   <>
     <MenuContainer />
     <h2>Your favorite microblogging platform</h2>
     <LoginFormContainer />
-    <SignUpFormContainer />
-    {/* <Spinner animation="border" role="status">
-  <span className="sr-only">Loading...</span>
-</Spinner> */}
+    {/* <SignUpFormContainer /> */}
+    <h5>New user? Sign up <Link to="/signup">here.</Link></h5>
   </>
 );

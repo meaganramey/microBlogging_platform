@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 
@@ -10,19 +10,15 @@ export const DisplayListOfUsers = ({
 }) => {
   
   useEffect(() => {
-    console.log('hello')
     // Update the document title using the browser API
     listOfUsers();
-    // setState(displayUsers);
-    // console.log(state);
-    // console.log("listOfUsers is this:", displayUsers);
   }, []);
 
   return (
     <>
       <section className="listOfUsers">
         <h1>This is where the list of users would be:</h1>
-        <ul className="unorderedListOfUsers">
+        <div className="unorderedListOfUsers">
           {users.map((user) => {
               return (
                 <React.Fragment>
@@ -39,7 +35,7 @@ export const DisplayListOfUsers = ({
                 </React.Fragment>
               );
             })}
-        </ul>
+        </div>
       </section>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
