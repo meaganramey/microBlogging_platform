@@ -36,6 +36,7 @@ export const logout = () => async (dispatch, getState) => {
      * Let the reducer know that we are logged out
      */
     dispatch({ type: LOGOUT });
+    localStorage.clear()
   }
 };
 // END AUTH ACTIONS

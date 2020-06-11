@@ -19,7 +19,8 @@
     "redux-devtools": "^3.5.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "save-dev": "0.0.1-security"
   },
   "scripts": {
     "start": "react-scripts start",
