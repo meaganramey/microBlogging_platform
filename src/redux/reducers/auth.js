@@ -1,4 +1,4 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, SET_USER_SUCCESS } from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
@@ -33,6 +33,12 @@ export const authReducer = (state = INITIAL_STATE, action) => {
       return {
         ...INITIAL_STATE,
       };
+      case SET_USER_SUCCESS:
+        return {
+          ...state,
+          ...action.payload,
+          // payload should be an obj that contains username, displayname, and profile photo
+        }
     default:
       return state;
   }
