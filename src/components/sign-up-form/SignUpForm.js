@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import {Loader} from '../loader'
 import ProptTypes from 'prop-types'
+// import  Form  from 'react-bootstrap/Form'
+// import  Button  from 'react-bootstrap/Button'
 
 
 export const SignUpForm = ({signUp, loading, error}) => {
@@ -13,7 +15,7 @@ export const SignUpForm = ({signUp, loading, error}) => {
 
     const handleCreate = (event) => {
         event.preventDefault()
-        console.log(state)
+        console.log(event.currentTarget)
         signUp(state)
     }
 
@@ -25,9 +27,9 @@ export const SignUpForm = ({signUp, loading, error}) => {
 
     return(
         <>
-            <form id="signup-form" onSubmit={handleCreate}>
-        <label htmlFor="username">Username</label>
-        <input
+           <form id="signup-form" onSubmit={handleCreate}>
+         <label htmlFor="username">Username</label>
+         <input
           type="text"
           name="username"
           value={state.username}
@@ -65,3 +67,27 @@ SignUpForm.propTypes = {
     loading: ProptTypes.bool,
     error: ProptTypes.string,
   };
+
+ 
+
+  // <Form onSubmit={handleCreate}>
+  //         <Form.Group controlId="formBasicEmail">
+  //           <Form.Label>Username</Form.Label>
+  //           <Form.Control type="text" placeholder="Enter username" />
+  //           <Form.Text className="text-muted">
+  //             Make it YOU-nique!
+  //           </Form.Text>
+  //         </Form.Group>
+
+  //         <Form.Group controlId="formBasicPassword">
+  //           <Form.Label>Password</Form.Label>
+  //           <Form.Control type="password" placeholder="Password" />
+  //         </Form.Group>
+  //         <Form.Group controlId="exampleForm.ControlTextarea1">
+  //           <Form.Label>Display Name</Form.Label>
+  //           <Form.Control type="text" placeholder='DisplayName'  />
+  //         </Form.Group>
+  //         <Button variant="primary" type="submit">
+  //           Submit
+  //         </Button>
+  //     </Form>  
