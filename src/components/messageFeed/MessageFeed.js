@@ -1,29 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Loader } from "../loader";
 import ProptTypes from "prop-types";
-import { Link } from "react-router-dom";
-import './MessageFeed.css';
 
-export const MessageFeed = ({ logout }) => {   
-    return (
-        <div id="menu">
-            <h1>Kwitter</h1>            
-                <div id="menu-links">
-                    <Link to="/profiles/:username">Profile</Link>
-                    <Link to="/" onClick={logout}>
-                        Logout
-                    </Link>
-                </div>            
-        </div>
-    );   
-}
+export const DisplayListOfMessages = ({
+  listOfMessages,
+  loading,
+  error,
+  messages  
+}) => {
+  const [state, setState] = useState({});  
+  useEffect(() => {
+    // Update the document title using the browser API
+    listOfMessages();   
+  }, []);
 
-MessageFeed.defaultProps = {    
-    logout: () => {}
-  };
-  
-MessageFeed.propTypes = {    
-    logout: ProptTypes.func.isRequired
-  };
-  
+  return (
+    <>
+      <section className="listOfMessages">
+        <h1>This is where the list of messages would be:</h1>
+        <ul className="unorderedListOfMessages">          
+          {messages.map((message) => {
+              return (
+                <React.Fragment>
+                  <div key={message.id} className="otherUsers">                    
+                    <p>From: {message.username}</p>
+                    <p>Posted at: {message.createdAt}</p>
+                    <p>{message.text}</p>
+                    </div>
+                </React.Fragment>
+              );
+            })}
+        </ul>
+      </section>
+      {loading && <Loader />}
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
+    </>
+  );
+};
 
-export default MessageFeed;
+DisplayListOfMessages.propTypes = {
+  listOfMessages: ProptTypes.func.isRequired,
+  loading: ProptTypes.bool,
+  error: ProptTypes.string,  
+};

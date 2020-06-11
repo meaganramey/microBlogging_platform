@@ -27,16 +27,14 @@ export const Navigation = () => (
         component={SignUpFormContainer}
       />
       <ConnectedRoute
-<<<<<<< HEAD
       exact
       path='/listofusers'
       component={ListOfUsersContainer}
     />
-=======
+	  <ConnectedRoute
         exact path = '/messagefeed'
         component = {MessageScreen}
-      />
->>>>>>> d73e4fe792b4327a5e180f79aacf6637e3e20f71
+    />
       <ConnectedRoute path="*" component={NotFoundScreen} />
     </Switch>
   </BrowserRouter>
