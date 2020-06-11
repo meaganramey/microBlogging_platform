@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
-// import { listOfUsersReducer } from "../../redux/reducers/listOfUsers";
-// import UserCard from './UserCard'
 
 export const DisplayListOfUsers = ({
   listOfUsers,
@@ -10,6 +8,7 @@ export const DisplayListOfUsers = ({
   error,
   users,
 }) => {
+  
   useEffect(() => {
     // Update the document title using the browser API
     listOfUsers();
@@ -30,13 +29,7 @@ export const DisplayListOfUsers = ({
                       About {user.displayName} : {user.about}
                     </p>
                     <p>
-                      Member since : {user.createdAt}
-                      {/* {() => {
-                        let now = new Date();
-                        let joined = user.createdAt;
-                        let result = now - joined;
-                        return result;
-                      }} */}
+                      Member since : {user.createdAt}                  
                     </p>
                   </div>
                 </React.Fragment>

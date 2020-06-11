@@ -30,9 +30,14 @@ export const Navigation = () => (
         component={SignUpScreen}
       />
       <ConnectedRoute
+      exact
+      path='/listofusers'
+      component={ListOfUsersContainer}
+    />
+	  <ConnectedRoute
         exact path = '/messagefeed'
         component = {MessageScreen}
-      />
+    />
       <ConnectedRoute 
         exact path ='/delete'
         component={DeleteUserScreen}

@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { authReducer } from "./auth";
 import { userReducer } from './users';
 import { listOfUsersReducer } from './listOfUsers';
+import { listOfMessagesReducer } from './messages'
 import { deleteUserReducer } from './deleteUser'
 import { addProfileImageReducer } from './profile-image'
 
@@ -11,4 +12,5 @@ export default combineReducers({
     listOfUsers: listOfUsersReducer, 
     deleteUser: deleteUserReducer,
     addProfileImage: addProfileImageReducer,
+    listOfMessages: listOfMessagesReducer,
 });
