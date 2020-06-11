@@ -34,7 +34,7 @@ class API {
 
     this.axiosInstance = axiosInstance;
   }
-
+// 5/10
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
@@ -48,7 +48,7 @@ class API {
       return err;
     }
   }
-
+// 6/10
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
@@ -96,6 +96,19 @@ class API {
   async showProfileImage(username) {
     try {
       const result = await this.axiosInstance.get("/users/"+username+"/picture");
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+
+ // 4/10 API endpoints
+  async deleteProfile(username) {
+    try {
+      console.log(username)
+      const result = await this.axiosInstance.delete("/users/" + username) 
+      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);

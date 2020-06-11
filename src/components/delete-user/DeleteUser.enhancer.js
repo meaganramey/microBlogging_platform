@@ -1,15 +1,16 @@
 import { connect } from "react-redux";
-import { signUp } from "../../redux/actions/users";
+import { deleteUser } from "../../redux/actions";
 
 // https://react-redux.js.org/using-react-redux/connect-mapstate#connect-extracting-data-with-mapstatetoprops
-const mapStateToProps = (state) => ({
-  loading: state.users.loading,
-  error: state.users.error,
-});
+const mapStateToProps = state => ({
+    isAuthenticated: state.deleteUser.isAuthenticated,
+    username: state.deleteUser.username,
+    error: state.deleteUser.error
+})
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
 const mapDispatchToProps = {
-  signUp,
+  deleteUser,
 };
 
 export const enhancer = connect(mapStateToProps, mapDispatchToProps);
