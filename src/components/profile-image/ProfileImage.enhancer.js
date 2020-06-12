@@ -6,6 +6,7 @@ const mapStateToProps = (state) => ({
   loading: state.addProfileImage.loading,
   error: state.addProfileImage.error,
   photo: state.auth.photo,
+  username: state.auth.username,
   // photo: state.auth.whatever the photo key is from the auth.js reducer and profile image js actions
 });
 
