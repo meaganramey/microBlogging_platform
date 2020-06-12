@@ -121,7 +121,7 @@ class API {
   async getListOfMessages() {
     try {
       const result = await this.axiosInstance.get("/messages?limit=100&offset=0");
-      console.log(result)
+      // console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
