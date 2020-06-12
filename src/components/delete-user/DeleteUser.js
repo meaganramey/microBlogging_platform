@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProptTypes from "prop-types";
 // import { Loader } from "../loader";
 // import {deleteUser} from '../../redux/actions/deleteUser'
@@ -45,7 +45,7 @@ export const DeleteUser = ({deleteUser}) => {
           required
           onChange={handleChange}
         /> */}
-        <button type='button' type="submit">
+        <button type="submit">
           Delete User
         </button>
       </form>

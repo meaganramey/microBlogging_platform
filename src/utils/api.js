@@ -148,8 +148,18 @@ class API {
     helpMeInstructor(err);
     return err;
   }
+ // 1/1 really complex API endpoints
+  async useGoogleLogin() {
+    try {
+      const result = await this.axiosInstance.get("/auth/google/login")
+      console.log(result)
+      return result
+    } catch (err) {
+      helpMeInstructor(err)
+      return err
+    }
+  }
 }
- // 1/1 really complext API endpoints
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
