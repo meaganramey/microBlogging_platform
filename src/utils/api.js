@@ -81,7 +81,7 @@ class API {
   }  
   // 5/10 endpoints used
   async addProfileImage(username, profileImage) {
-    console.log(username, profileImage)
+    // console.log(username, profileImage)
     try {
       const data = new FormData()
       data.append('picture', profileImage)
@@ -96,8 +96,10 @@ class API {
   async showProfileImage(username) {
     try {
       const result = await this.axiosInstance.get("/users/"+username+"/picture");
-      console.log(result)
-      return result;
+      // console.log( typeof result)
+      // console.log(btoa(unescape(encodeURIComponent(result))))
+      // console.log( new Blob([result], {type: "image/png"}))
+      return result
     } catch (err) {
       helpMeInstructor(err);
       return err;
