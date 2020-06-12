@@ -4,3 +4,4 @@ export * from "./NotFound";
 export * from "./Delete";
 export * from "./SignUpScreen";
 export * from "./Messages"
+export * from './ListOfUsers'
