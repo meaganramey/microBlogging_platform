@@ -22,7 +22,7 @@ export const ProfileImage = ({
     window.location.reload(true)
   }
   url = "https://kwitter-api.herokuapp.com/users/"+username+"/picture"
-  console.log(url)
+  // console.log(url)
   return (
     <>
     <form onSubmit={submitForm}>
