@@ -4,6 +4,7 @@ import {
   LOGIN_FAILURE,
   LOGOUT,
   SET_USER_SUCCESS,
+  GOOGLE_LOGIN_SUCCESS,
 } from "../actions";
 
 // INITIAL STATE
@@ -45,6 +46,13 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         ...state,
         photo: action.payload,
         // payload should be an obj that contains username, displayname, and profile photo
+      };
+      case GOOGLE_LOGIN_SUCCESS:
+        console.log(action.payload)
+        return {
+          ...INITIAL_STATE,
+          isAuthenticated: action.payload.token,
+          username: action.payload.username,
       };
     default:
       return state;
