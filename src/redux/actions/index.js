@@ -4,3 +4,4 @@ export * from './listOfUsers';
 export * from './messageActions'
 export * from './deleteUser';
 export * from './profile-image'
+export * from './getUserInfo'
