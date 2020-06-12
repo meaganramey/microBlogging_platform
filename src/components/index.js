@@ -6,3 +6,7 @@ export * from './list-of-users'
 export * from "./profile-image"
 export * from "./sign-up-form"
 export * from './delete-user'
+export * from './messageFeed'
+export * from './createMessage'
+export * from './profile'
+export * from './getUserInfo'

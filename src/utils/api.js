@@ -121,7 +121,7 @@ class API {
   async getListOfMessages() {
     try {
       const result = await this.axiosInstance.get("/messages?limit=100&offset=0");
-      console.log(result)
+      // console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -129,9 +129,25 @@ class API {
     }
   }
  // 9/10 API endpoints
-
+  async createMessage(message) {
+    try {
+      const result = await this.axiosInstance.post("/messages", message);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }  
  // 10/10 API endpoints
-
+ async getUserInfo(username) {
+  try {
+    const result = await this.axiosInstance.get("/users/"+username);
+    console.log(result)
+    return result;
+  } catch (err) {
+    helpMeInstructor(err);
+    return err;
+  }
  // 1/1 really complex API endpoints
   async useGoogleLogin() {
     try {
@@ -143,6 +159,7 @@ class API {
       return err
     }
   }
+}
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]

@@ -16,7 +16,7 @@ export const listOfMessages = () => async (dispatch, getState) => {
     dispatch({ type: DISPLAY_MESSAGES });
     const payload = await api.getListOfMessages();
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    console.log({ payload })
+    // console.log({ payload })
     dispatch({ type: DISPLAY_MESSAGES_SUCCESS, payload });
   } catch (err) {
     dispatch({

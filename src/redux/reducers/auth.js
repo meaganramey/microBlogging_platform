@@ -44,7 +44,7 @@ export const authReducer = (state = INITIAL_STATE, action) => {
     case SET_USER_SUCCESS:
       return {
         ...state,
-        photo: action.payload,
+        photo: action.photoResult,
         // payload should be an obj that contains username, displayname, and profile photo
       };
       case GOOGLE_LOGIN_SUCCESS:
