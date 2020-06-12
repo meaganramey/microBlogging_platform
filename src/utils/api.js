@@ -148,6 +148,7 @@ class API {
     helpMeInstructor(err);
     return err;
   }
+}
  // 1/1 really complex API endpoints
   async useGoogleLogin() {
     try {
@@ -159,7 +160,6 @@ class API {
       return err
     }
   }
-}
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
