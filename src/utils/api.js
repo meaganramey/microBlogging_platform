@@ -127,6 +127,15 @@ class API {
     }
   }
  // 9/10 API endpoints
+  async createMessage(message) {
+    try {
+      const result = await this.axiosInstance.post("/messages", message);
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }  
 
  // 10/10 API endpoints
 
