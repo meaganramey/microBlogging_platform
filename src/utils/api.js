@@ -138,9 +138,17 @@ class API {
       return err;
     }
   }  
-
  // 10/10 API endpoints
-
+ async getUserInfo(username) {
+  try {
+    const result = await this.axiosInstance.get("/users/"+username);
+    console.log(result)
+    return result;
+  } catch (err) {
+    helpMeInstructor(err);
+    return err;
+  }
+}
  // 1/1 really complext API endpoints
 }
 

@@ -8,3 +8,5 @@ export * from "./sign-up-form"
 export * from './delete-user'
 export * from './messageFeed'
 export * from './createMessage'
+export * from './profile'
+export * from './getUserInfo'
