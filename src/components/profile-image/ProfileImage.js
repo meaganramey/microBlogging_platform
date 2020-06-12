@@ -21,10 +21,10 @@ export const ProfileImage = ({
   const submitForm = async (event) => {
     event.preventDefault();
     await sendProfileImage(state);
-    window.location.reload(true);
-  };
-  url = "https://kwitter-api.herokuapp.com/users/" + username + "/picture";
-  // console.log(url);
+    window.location.reload(true)
+  }
+  url = "https://kwitter-api.herokuapp.com/users/"+username+"/picture"
+  // console.log(url)
   return (
     <>
       <Card style={{width: 18+"rem", }}>
