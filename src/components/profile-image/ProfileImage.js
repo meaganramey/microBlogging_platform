@@ -19,14 +19,15 @@ export const ProfileImage = ({
   const submitForm = async (event) => {
     event.preventDefault();
     await sendProfileImage(state);
-    url = "https://kwitter-api.herokuapp.com/users/"+username+"/picture"
-    console.log(url)
+    window.location.reload(true)
   }
+  url = "https://kwitter-api.herokuapp.com/users/"+username+"/picture"
+  console.log(url)
   return (
     <>
     <form onSubmit={submitForm}>
       <input type="file" name="picture" id="picture" accept='image/*' onChange={handleChange}/>
-      <img alt="The User" src={url} />
+      <img alt="The User" src={url} style={{width: 200+"px"}}/>
       <button type="button submit" className="profileButtonSuccess">Upload your Profile Picture</button>
     </form>
       {loading && <Loader />}
