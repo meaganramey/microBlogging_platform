@@ -34,7 +34,7 @@ class API {
 
     this.axiosInstance = axiosInstance;
   }
-// 5/10
+// 1/10 endpoints used
   async login({ username, password }) {
     try {
       const result = await this.axiosInstance.post("/auth/login", {
@@ -48,7 +48,7 @@ class API {
       return err;
     }
   }
-// 6/10
+// 2/10 endpoints used
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
@@ -57,7 +57,7 @@ class API {
       return err;
     }
   }
-  // 1/10 endpoints used
+  // 3/10 endpoints used
   async createUser(credentials) {
     try {
       // console.log(credentials);
@@ -68,7 +68,7 @@ class API {
       return err;
     }
   }
-  // 2/10 endpoints used
+  // 4/10 endpoints used
   async getListOfUsers() {
     try {
       const result = await this.axiosInstance.get("/users?limit=100&offset=0");
@@ -79,7 +79,7 @@ class API {
       return err;
     }
   }  
-  // 3/10 endpoints used
+  // 5/10 endpoints used
   async addProfileImage(username, profileImage) {
     console.log(username, profileImage)
     try {
@@ -92,18 +92,18 @@ class API {
       return err;
     }
   }
-  // 4/10 endpoints used
+  // 6/10 endpoints used
   async showProfileImage(username) {
     try {
       const result = await this.axiosInstance.get("/users/"+username+"/picture");
+      console.log(result)
       return result;
     } catch (err) {
       helpMeInstructor(err);
       return err;
     }
   }
-
- // 4/10 API endpoints
+ // 7/10 API endpoints
   async deleteProfile(username) {
     try {
       console.log(username)
@@ -115,7 +115,7 @@ class API {
       return err;
     }
   }
-
+ // 8/10 API endpoints
   async getListOfMessages() {
     try {
       const result = await this.axiosInstance.get("/messages?limit=100&offset=0");
@@ -126,6 +126,11 @@ class API {
       return err;
     }
   }
+ // 9/10 API endpoints
+
+ // 10/10 API endpoints
+
+ // 1/1 really complext API endpoints
 }
 
 // WARNING.. do not touch below this line if you want to have a good day =]
