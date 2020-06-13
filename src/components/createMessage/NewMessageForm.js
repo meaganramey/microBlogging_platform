@@ -13,6 +13,7 @@ export const NewMessageForm = ({newMessage, loading, error}) => {
         event.preventDefault()
         console.log(event.currentTarget)        
         newMessage(state)
+    window.location.reload(true)
     }
 
     const handleChange =(event) => {
