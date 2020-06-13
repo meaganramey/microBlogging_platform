@@ -5,8 +5,7 @@ import { HomeScreen, ProfileScreen, NotFoundScreen, DeleteUserScreen, MessageScr
 // import { SignUpFormContainer } from '../sign-up-form'
 // import { DeleteUserContainer} from '../delete-user'
 
-
-export const Navigation = () => (
+export const Navigation = ({ match, }) => (
   <BrowserRouter>
     <Switch>
       <ConnectedRoute
@@ -18,11 +17,13 @@ export const Navigation = () => (
       <ConnectedRoute
         exact
         isProtected
-        path="/profiles/:username"
+        path={`/profiles/:username`}
+        // path={`${match.url}/profiles/:username`}
         component={ProfileScreen}
       />
       <ConnectedRoute
         exact
+        redirectIfAuthenticated
         path='/signup'
         component={SignUpScreen}
       />

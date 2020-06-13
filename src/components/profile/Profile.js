@@ -4,16 +4,18 @@ import ProptTypes from "prop-types";
 import { ProfileImageContainer, DeleteUserContainer, GetUserInfoContainer } from "../index";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { ProfileContainer } from ".";
+import { useParams } from 'react-router-dom'
 
-export const Profile = ({ loading, error, user }) => {
-  console.log(user)
+export const Profile = ({ loading, error, loggedInUser,  }) => {
+  let username = useParams()
+  // console.log(user, username)
   return (
     <>
       <Card>
         <ProfileImageContainer />
         <GetUserInfoContainer />
-        <DeleteUserContainer />
+        {username.username === loggedInUser &&
+          <DeleteUserContainer /> }
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </Card>

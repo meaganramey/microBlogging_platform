@@ -3,14 +3,17 @@ import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useParams } from 'react-router-dom'
 
 export const ProfileImage = ({
   sendProfileImage,
   loading,
   error,
   photo,
-  username,
+  // username,
+  loggedInUser,
 }) => {
+  let username = useParams()
   let url = "";
   const [state, setState] = useState(null);
   const handleChange = (event) => {
@@ -23,20 +26,20 @@ export const ProfileImage = ({
     await sendProfileImage(state);
     window.location.reload(true)
   }
-  url = "https://kwitter-api.herokuapp.com/users/"+username+"/picture"
+  url = "https://kwitter-api.herokuapp.com/users/"+username.username+"/picture"
   // console.log(url)
   return (
     <>
       <Card style={{width: 18+"rem", }}>
         <img
-          className="card-img-top"
-          alt="The User"
+          className="card-img-top rounded"
+          alt={url ? "The User" : "This user has not set a Profile Picture."}
           src={url}
-          style={{ width: 200 + "px", margin: 0+" auto" }}
+          style={{ width: 300 + "px", minHeight: 200+"px", margin: 0+" auto" }}
         />
         {/* <Card.Body>About info:</Card.Body> */}
         {/* card can be used as above with Card.whatever or as below with className="card-whatever" */}
-        <div className="card-footer">
+        {loggedInUser === username.username && <div className="card-footer">
           <form onSubmit={submitForm}>
             <div className="input-group mb-3">
               <input
@@ -59,6 +62,7 @@ export const ProfileImage = ({
             </Button>
           </form>
         </div>
+        }
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </Card>

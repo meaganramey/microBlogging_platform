@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
+import { useParams } from 'react-router-dom'
 
 export const DisplayUserInfo = ({
   getUserInfoAction,
@@ -8,9 +9,11 @@ export const DisplayUserInfo = ({
   error,
   user,
 }) => {
+  let username = useParams()
+  console.log( typeof username.username)
   useEffect(() => {
     // Update the document title using the browser API
-    getUserInfoAction();
+    getUserInfoAction(username.username);
   }, []);
   return (
     <>

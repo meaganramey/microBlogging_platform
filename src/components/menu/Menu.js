@@ -3,13 +3,13 @@ import ProptTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 
-export const Menu = ({ isAuthenticated, logout }) => {
+export const Menu = ({ isAuthenticated, logout, loggedInUser }) => {
   return (
     <div id="menu">
       <h1>Kwitter</h1>
       {isAuthenticated && (
         <div id="menu-links">
-          <Link to="/profiles/:username">Your Profile</Link>
+          <Link to={"/profiles/"+loggedInUser}>Your Profile</Link>
           <Link to="/messagefeed">Message Feed</Link>
           <Link to="/listofusers">List of Users</Link>
           <Link to="/" onClick={logout}>Logout</Link>
