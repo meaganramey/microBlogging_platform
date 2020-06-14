@@ -11,6 +11,11 @@ export const DisplayListOfUsers = ({ listOfUsers, loading, error, users }) => {
     listOfUsers();
   }, [listOfUsers]);
 let defaultImage = require("../../images/default.png")
+let moment = require('moment')
+  const memberSince = (createdAt) => {
+    // console.log(moment(createdAt).fromNow())
+    return moment(createdAt).fromNow()
+  }
   return (
     <>
       <section className="listOfUsers">
@@ -47,7 +52,9 @@ let defaultImage = require("../../images/default.png")
                         user.displayName +
                           " is still thinking about this part..."}
                     </p>
-                    <p className='card-footer'>Member since : {user.createdAt}</p>
+                    <p className='card-footer'>
+                      Member since : {memberSince(user.createdAt)}
+                      </p>
                   </div>
                 </Card>
               </React.Fragment>
