@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid'
 
 export const DisplayListOfUsers = ({ listOfUsers, loading, error, users }) => {
   useEffect(() => {
     // Update the document title using the browser API
     listOfUsers();
-  }, []);
-
+  }, [listOfUsers]);
+let defaultImage = require("../../images/default.png")
   return (
     <>
       <section className="listOfUsers">
@@ -17,11 +18,11 @@ export const DisplayListOfUsers = ({ listOfUsers, loading, error, users }) => {
         <div className="unorderedListOfUsers">
           {users.map((user) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={uuidv4()}>
                 <Card style={{ width: 18 + "rem", textAlign: "center"}}>
                   <img
                     className="card-img-top rounded zoom img-fluid"
-                    alt={"This user has not set a Profile Picture."}
+                    alt={"User"}
                     src={
                       "https://kwitter-api.herokuapp.com/users/" +
                       user.username +
@@ -32,6 +33,7 @@ export const DisplayListOfUsers = ({ listOfUsers, loading, error, users }) => {
                       minHeight: 20 + "px",
                       margin: 0 + " auto",
                     }}
+                    onError={(e) => {e.target.onerror=null; e.target.src=defaultImage}}
                   />
                   <div key={user.username} className="card-body">
                     <Link to={"/profiles/" + user.username} className="btn btn-secondary">

@@ -14,7 +14,7 @@ export const DisplayUserInfo = ({
   useEffect(() => {
     // Update the document title using the browser API
     getUserInfoAction(username.username);
-  }, []);
+  }, [getUserInfoAction, username.username]);
   return (
     <>
       <div>{user.displayName}</div>

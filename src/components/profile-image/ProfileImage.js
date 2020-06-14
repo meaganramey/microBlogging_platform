@@ -4,6 +4,7 @@ import ProptTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams, Redirect } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 export const ProfileImage = ({
   sendProfileImage,
@@ -32,10 +33,15 @@ export const ProfileImage = ({
   // console.log(url)
   const redirectToUpdateUserPage = (event) => {
     event.preventDefault()
+    console.log(redirect)
     redirectSetState(
       redirect = !redirect
     )
     console.log(redirect)
+    // if (redirect) {
+    //   console.log('in here')
+    //  return (<Redirect key={uuidv4()} to="/updateInformation"/>)
+    // }
   }
   return (
     <>
@@ -79,7 +85,7 @@ export const ProfileImage = ({
         }
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
-        {loggedInUser === username.username && redirect && <Redirect push to="/updateInformation"/>}
+        {redirect && <Redirect key={uuidv4()} push to="/updateInformation"/>}
       </Card>
     </>
   );

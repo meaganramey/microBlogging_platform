@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import { ProfileImageContainer, DeleteUserContainer, GetUserInfoContainer } from "../index";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useParams } from 'react-router-dom'
 

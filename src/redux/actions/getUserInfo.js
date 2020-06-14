@@ -18,7 +18,7 @@ export const getUserInfoAction = (username) => async (dispatch, getState) => {
     dispatch({ type: DISPLAY_USER_INFO });
     const payload = await api.getUserInfo(username);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    console.log({ payload })
+    // console.log({ payload })
     dispatch({ type: DISPLAY_USER_INFO_SUCCESS, payload });
   } catch (err) {
     dispatch({

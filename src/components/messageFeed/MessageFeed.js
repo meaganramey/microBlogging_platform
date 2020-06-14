@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
+import { v4 as uuidv4 } from 'uuid'
 
 export const DisplayListOfMessages = ({
   listOfMessages,
@@ -8,21 +9,20 @@ export const DisplayListOfMessages = ({
   error,
   messages  
 }) => {
-  const [state, setState] = useState({});  
   useEffect(() => {
     // Update the document title using the browser API
     listOfMessages();   
-  }, []);
+  }, [listOfMessages]);
 
   return (
     <>
       <section className="listOfMessages">
-        <h1>This is where the list of messages would be:</h1>
+        {/* <h1>This is where the list of messages would be:</h1> */}
         <ul className="unorderedListOfMessages">          
           {messages.map((message) => {
               return (
-                <React.Fragment>
-                  <div key={message.id} className="otherUsers">                    
+                <React.Fragment key={uuidv4()}>
+                  <div className="otherUsers">                    
                     <p>From: {message.username}</p>
                     <p>Posted at: {message.createdAt}</p>
                     <p>{message.text}</p>

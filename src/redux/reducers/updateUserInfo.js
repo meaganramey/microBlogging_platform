@@ -20,6 +20,7 @@ export const updateUserInfoReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
+        redirect: false,
       };
     case UPDATE_USER_INFO_SUCCESS:
       return {

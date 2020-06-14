@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import { Redirect } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid'
 
 export const UpdateUserInfo = ({
   updateUserInfoAction,
   loading,
   error,
   user,
-  redirect,
 }) => {
   const [state, setState] = useState({
     displayName: "",
     password: "",
     about: "",
   });
+  let [redirect, redirectSetState] = useState(false)
   const handleCreate = (event) => {
     event.preventDefault();
     let newState = {...state}
@@ -27,17 +28,21 @@ export const UpdateUserInfo = ({
     if (state.about === ''){
       delete newState.about
     }
-    console.log(state);
-    console.log(newState)
     updateUserInfoAction(newState);
+    redirectSetState(
+      redirect = !redirect
+    )
   };
-
   const handleChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
     setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
   };
-
+  const goHome = (event) => {
+    redirectSetState(
+      redirect = !redirect
+    )
+  }
   return (
     <>
       <form id="updateUserInfo" onSubmit={handleCreate}>
@@ -75,6 +80,8 @@ export const UpdateUserInfo = ({
           Submit Changes
         </button>
       </form>
+      <button onClick={goHome}>Discard Changes
+        </button>
       {loading && <Loader />}
       {error && (
         <p style={{ color: "red" }}>
@@ -83,7 +90,7 @@ export const UpdateUserInfo = ({
           {error}
         </p>
       )}
-      {redirect && <Redirect to={"/profiles/"+user.username} />}
+      {redirect && <Redirect key={uuidv4()} to={"/profiles/"+user.username} />}
     </>
   );
 };
