@@ -33,15 +33,9 @@ export const ProfileImage = ({
   // console.log(url)
   const redirectToUpdateUserPage = (event) => {
     event.preventDefault()
-    console.log(redirect)
     redirectSetState(
       redirect = !redirect
     )
-    console.log(redirect)
-    // if (redirect) {
-    //   console.log('in here')
-    //  return (<Redirect key={uuidv4()} to="/updateInformation"/>)
-    // }
   }
   return (
     <>
