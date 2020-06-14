@@ -5,6 +5,7 @@ import { ADD_PROFILE_IMAGE, ADD_PROFILE_IMAGE_SUCCESS, ADD_PROFILE_IMAGE_FAILURE
 const INITIAL_STATE = {
   loading: false,
   error: "",
+  // redirect: false,
 };
 
 export const addProfileImageReducer = (state = INITIAL_STATE, action) => {

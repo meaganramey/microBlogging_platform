@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import {Loader} from '../loader'
 import ProptTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 
-export const SignUpForm = ({signUp, loading, error}) => {
+export const SignUpForm = ({signUp, loading, error, redirect}) => {
 
     const [state, setState] = useState({
         username:'',
@@ -54,8 +55,12 @@ export const SignUpForm = ({signUp, loading, error}) => {
         </button>
       </form>
       {loading && <Loader />}
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-        </>
+      {error && <p style={{ color: "red" }}>
+        {/* Sorry, that didn't go through. 
+      Please make sure the username, password, and display name are between 3 and 30 characters, and then try again. */}
+      {error}</p>}
+      {redirect && <Redirect to={"/profiles/:username"}/>}
+      </>
     )
 }
 
@@ -63,6 +68,7 @@ SignUpForm.propTypes = {
     signUp: ProptTypes.func.isRequired,
     loading: ProptTypes.bool,
     error: ProptTypes.string,
+    redirect: ProptTypes.bool,
   };
 
  

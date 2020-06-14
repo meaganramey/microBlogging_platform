@@ -3,7 +3,7 @@ import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useParams } from 'react-router-dom'
+import { useParams, Redirect } from 'react-router-dom'
 
 export const ProfileImage = ({
   sendProfileImage,
@@ -12,10 +12,12 @@ export const ProfileImage = ({
   photo,
   // username,
   loggedInUser,
+  // redirect,
 }) => {
   let username = useParams()
   let url = "";
   const [state, setState] = useState(null);
+  let [redirect, redirectSetState] = useState(false)
   const handleChange = (event) => {
     // console.log(event.target.files[0])
     // Update the document title using the browser API
@@ -28,6 +30,13 @@ export const ProfileImage = ({
   }
   url = "https://kwitter-api.herokuapp.com/users/"+username.username+"/picture"
   // console.log(url)
+  const redirectToUpdateUserPage = (event) => {
+    event.preventDefault()
+    redirectSetState(
+      redirect = !redirect
+    )
+    console.log(redirect)
+  }
   return (
     <>
       <Card style={{width: 18+"rem", }}>
@@ -60,11 +69,17 @@ export const ProfileImage = ({
             >
               Upload your Profile Picture
             </Button>
-          </form>
+            </form>
+            <Button 
+              className="btn btn-primary btn-sm btn-block" 
+              onClick={redirectToUpdateUserPage}
+              > Update Your Profile
+            </Button>
         </div>
         }
         {loading && <Loader />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+        {loggedInUser === username.username && redirect && <Redirect push to="/updateInformation"/>}
       </Card>
     </>
   );
@@ -75,4 +90,5 @@ ProfileImage.propTypes = {
   loading: ProptTypes.bool,
   error: ProptTypes.string,
   photo: ProptTypes.string,
+  // redirect: ProptTypes.bool,
 };

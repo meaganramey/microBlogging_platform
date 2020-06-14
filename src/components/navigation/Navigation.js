@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
-import { HomeScreen, ProfileScreen, NotFoundScreen, DeleteUserScreen, MessageScreen, SignUpScreen, ListOfUsersScreen } from "../../screens";
+import { HomeScreen, ProfileScreen, NotFoundScreen, DeleteUserScreen, MessageScreen, SignUpScreen, ListOfUsersScreen, UpdateUserInfoScreen } from "../../screens";
 // import { SignUpFormContainer } from '../sign-up-form'
 // import { DeleteUserContainer} from '../delete-user'
 
@@ -35,6 +35,10 @@ export const Navigation = ({ match, }) => (
 	  <ConnectedRoute
         exact path = '/messagefeed'
         component = {MessageScreen}
+    />
+	  <ConnectedRoute
+        exact path = '/updateInformation'
+        component = {UpdateUserInfoScreen}
     />
       <ConnectedRoute 
         exact path ='/delete'

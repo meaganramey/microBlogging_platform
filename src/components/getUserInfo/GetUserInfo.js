@@ -10,7 +10,7 @@ export const DisplayUserInfo = ({
   user,
 }) => {
   let username = useParams()
-  console.log( typeof username.username)
+  // console.log( typeof username.username)
   useEffect(() => {
     // Update the document title using the browser API
     getUserInfoAction(username.username);

@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
   photo: state.auth.photo,
   loggedInUser: state.auth.username,
   // photo: state.auth.whatever the photo key is from the auth.js reducer and profile image js actions
+  // redirect: state.addProfileImage.redirect,
 });
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops

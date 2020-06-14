@@ -7,6 +7,7 @@ import { deleteUserReducer } from './deleteUser'
 import { addProfileImageReducer } from './profile-image'
 import { createMessageReducer } from "./createMessage";
 import { getUserInfoReducer } from './getUserInfo'
+import { updateUserInfoReducer } from './updateUserInfo'
 
 export default combineReducers({ 
     auth: authReducer, 
@@ -17,4 +18,5 @@ export default combineReducers({
     listOfMessages: listOfMessagesReducer,
     createMessage: createMessageReducer,
     getUserInfo: getUserInfoReducer,
+    updateUserInfo: updateUserInfoReducer,
 });
