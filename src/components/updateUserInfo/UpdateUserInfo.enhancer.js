@@ -1,16 +1,18 @@
 import { connect } from "react-redux";
-import { signUp } from "../../redux/actions/users";
+import { updateUserInfoAction } from "../../redux/actions";
 
 // https://react-redux.js.org/using-react-redux/connect-mapstate#connect-extracting-data-with-mapstatetoprops
 const mapStateToProps = (state) => ({
-  loading: state.users.loading,
-  error: state.users.error,
-  redirect: state.users.redirect,
-});
+  user: state.getUserInfo.user,
+  loading: state.updateUserInfo.loading,
+  error: state.updateUserInfo.error,
+  redirect: state.updateUserInfo.redirect,
+})
+
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
 const mapDispatchToProps = {
-  signUp,
+  updateUserInfoAction,
 };
 
 export const enhancer = connect(mapStateToProps, mapDispatchToProps);

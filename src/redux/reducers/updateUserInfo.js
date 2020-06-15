@@ -1,9 +1,9 @@
 // TODO: implement
 import {
-  CREATE_USER,
-  CREATE_USER_SUCCESS,
-  CREATE_USER_ERROR,
-  CREATE_USER_FAILURE,
+  UPDATE_USER_INFO,
+  UPDATE_USER_INFO_SUCCESS,
+  UPDATE_USER_INFO_ERROR,
+  UPDATE_USER_INFO_FAILURE,
 } from "../actions";
 
 // INITIAL STATE
@@ -14,28 +14,29 @@ const INITIAL_STATE = {
   redirect: false,
 };
 
-export const userReducer = (state = INITIAL_STATE, action) => {
+export const updateUserInfoReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CREATE_USER:
+    case UPDATE_USER_INFO:
       return {
         ...state,
         loading: true,
+        redirect: false,
       };
-    case CREATE_USER_SUCCESS:
+    case UPDATE_USER_INFO_SUCCESS:
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
         loading: false,
-        redirect: true
+        redirect: true,
       };
-    case CREATE_USER_ERROR:
+    case UPDATE_USER_INFO_ERROR:
       return {
         ...state,
         user: null,
         loading: false,
         error: action.payload.response.data.message,
       };
-    case CREATE_USER_FAILURE:
+    case UPDATE_USER_INFO_FAILURE:
       return {
         ...state,
         error: action.payload,
@@ -45,3 +46,4 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+// group all users related actions in one file... ie. ad to users.js

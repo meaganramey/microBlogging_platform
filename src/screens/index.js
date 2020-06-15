@@ -5,3 +5,4 @@ export * from "./Delete";
 export * from "./SignUpScreen";
 export * from "./Messages"
 export * from './ListOfUsers'
+export * from './UpdateUserInfoScreen'

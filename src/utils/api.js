@@ -142,6 +142,16 @@ class API {
  async getUserInfo(username) {
   try {
     const result = await this.axiosInstance.get("/users/"+username);
+    // console.log(result)
+    return result;
+  } catch (err) {
+    helpMeInstructor(err);
+    return err;
+  }
+}// 11/10 API endpoints
+async updateUserInfo(username, updatedUserdetails) {
+  try {
+    const result = await this.axiosInstance.patch("/users/"+username, updatedUserdetails);
     console.log(result)
     return result;
   } catch (err) {
