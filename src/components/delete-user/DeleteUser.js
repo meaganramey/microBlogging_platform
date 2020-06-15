@@ -1,15 +1,10 @@
 import React from "react";
 import ProptTypes from "prop-types";
-// import { Loader } from "../loader";
-// import {deleteUser} from '../../redux/actions/deleteUser'
+import Button from 'react-bootstrap/Button'
 
 
-export const DeleteUser = ({deleteUser}) => {
-  // Not to be confused with "this.setState" in classes
-  // const [state, setState] = useState({
-  //   username: "",
-  //   active: true
-  // });
+export const DeleteUser = ({deleteUser, error}) => {
+
 
   const handleDelete = (event) => {
     event.preventDefault();
@@ -18,43 +13,21 @@ export const DeleteUser = ({deleteUser}) => {
     console.log("whats up")
   };
 
-  // const handleChange = (event) => {
-  //   const inputName = event.target.name;
-  //   const inputValue = event.target.value;
-    // setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
-    // need to change state.active to false
-  // };
 
   return (
     <React.Fragment>
       <form id="login-form" onClick={handleDelete}>
-        <label htmlFor="username">Username</label>
-        {/* <input
-          type="text"
-          name="username"
-          value={state.username}
-          autoFocus
-          required
-          onChange={handleChange}
-        /> */}
-        {/* <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        /> */}
-        <button type="submit">
+        <label htmlFor="username"></label>
+        <Button type="submit">
           Delete User
-        </button>
+        </Button>
       </form>
-      {/* { <Loader />} */}
-      {/* {error && <p style={{ color: "red" }}>{error.message}</p>} */}
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>
   );
 };
 
 DeleteUser.propTypes = {
   deleteUser: ProptTypes.func.isRequired,
+  error: ProptTypes.string,
 };
