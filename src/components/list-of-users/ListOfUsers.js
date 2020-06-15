@@ -3,7 +3,7 @@ import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import array from "lodash/array";
 
 export const DisplayListOfUsers = ({ listOfUsers, loading, error, users }) => {

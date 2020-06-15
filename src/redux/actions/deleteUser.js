@@ -22,7 +22,7 @@ export const deleteUser = () => async (dispatch, getState) => {
      await api.deleteProfile(username);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
     // console.log({ payload })
-    dispatch({ type: DELETE_USER_SUCCESS });
+    // dispatch({ type: DELETE_USER_SUCCESS });
     dispatch({type: LOGOUT})
   } catch (err) {
     dispatch({

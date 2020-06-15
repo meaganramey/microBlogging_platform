@@ -30,7 +30,7 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
       if(!event || !event.data || !event.data.token) {
         // google login failure, dispatch an action here
         alert('Please log in to your Google account first')
-        console.log('something happened')
+        // console.log('something happened')
         return 
       }
       
