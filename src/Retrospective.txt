@@ -1,0 +1,13 @@
+- Kwitter Retrospective Notes -
+
+Coming into this project initially felt like a huge leap from anything
+that I was capable of at this current stage as a junior developer.
+To be honest in a lot of ways it still feels pretty foreign and with
+a lot of moving parts that I only understand so much.
+I would have liked to have been able to break down the building of
+Kwitter into a series of group assessments that built off of one another
+and eventually led into what the final submission of the project would
+be. Of course that would have required a lot of reworking on the back end,
+but I know I personally would have felt far more confident both going 
+in and coming out of the other side. All in all it's been interesting
+to say the least. 
