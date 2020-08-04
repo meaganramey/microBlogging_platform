@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Loader } from "../loader";
 import ProptTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
+import {Card} from 'react-bootstrap'
 
 export const DisplayListOfMessages = ({
   listOfMessages,
@@ -21,13 +22,11 @@ export const DisplayListOfMessages = ({
   return (
     <>
       <section className="listOfMessages">
-        {/* <h1>This is where the list of messages would be:</h1> */}
-        <ul className="unorderedListOfMessages">
           {messages.map((message) => {
             return (
               <React.Fragment key={uuidv4()}>
-                <div className="otherUsers">
-                  <img
+                <Card className="otherUsers bg-light">
+                  <Card.Img
                     className="card-img-top rounded"
                     alt={"The User"}
                     src={
@@ -36,8 +35,8 @@ export const DisplayListOfMessages = ({
                       "/picture"
                     }
                     style={{
-                      width: 300 + "px",
-                      minHeight: 200 + "px",
+                      width: 100 + "px",
+                      minHeight: 50 + "px",
                       margin: 0 + " auto",
                     }}
                     onError={(e) => {
@@ -45,14 +44,15 @@ export const DisplayListOfMessages = ({
                       e.target.src = defaultImage;
                     }}
                   />
-                  <p>From: {message.username}</p>
-                  <p>Posted at: {since(message.createdAt)}</p>
-                  <p>{message.text}</p>
-                </div>
+                  <Card.Body>
+                  <Card.Text className="text-secondary">From: {message.username}</Card.Text>
+                  <Card.Text className="text-secondary">Posted at: {since(message.createdAt)}</Card.Text>
+                  <Card.Text className="text-dark">{message.text}</Card.Text>
+                  </Card.Body>
+                </Card>
               </React.Fragment>
             );
           })}
-        </ul>
       </section>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}

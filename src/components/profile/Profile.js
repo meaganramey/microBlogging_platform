@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 
 export const Profile = ({ loading, error, loggedInUser,  }) => {
   let username = useParams()
-  // console.log(user, username)
+  console.log("Logged In User:", loggedInUser, "username", username)
   return (
     <>
       <Card>

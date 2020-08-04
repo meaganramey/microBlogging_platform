@@ -5,6 +5,5 @@ export const ProfileScreen = () => (
   <>
     <MenuContainer />
     <ProfileContainer />
-    <DeleteUserContainer />
   </>
 );

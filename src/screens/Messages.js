@@ -6,7 +6,7 @@ import { NewMessageFormContainer } from "../components/createMessage"
 export const MessageScreen = () => (
   <>
     <MenuContainer />
-    <h2>Messages</h2>
+    <h2>Message Feed</h2>
     <NewMessageFormContainer />
     <MessageContainer />
   </>

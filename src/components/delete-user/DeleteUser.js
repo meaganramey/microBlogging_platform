@@ -19,7 +19,7 @@ export const DeleteUser = ({deleteUser, error}) => {
       <form id="login-form" onClick={handleDelete}>
         <label htmlFor="username"></label>
         <Button type="submit">
-          Delete User
+          Delete Your Profile
         </Button>
       </form>
       {error && <p style={{ color: "red" }}>{error.message}</p>}

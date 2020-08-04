@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
 import "./LoginForm.css";
+import { Button, Form } from "react-bootstrap";
 export const LoginForm = ({ login, loginGoogle, loading, error }) => {
   // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
@@ -19,53 +20,51 @@ export const LoginForm = ({ login, loginGoogle, loading, error }) => {
     setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
   };
   const startAuthentication = () => {
-  
     const authWindow = window.open(
       "https://kwitter-api.herokuapp.com/auth/google/login",
       "_blank",
       "width=500,height=500"
     );
     authWindow.window.opener.onmessage = (event) => {
-      authWindow.close()
-      if(!event || !event.data || !event.data.token) {
+      authWindow.close();
+      if (!event || !event.data || !event.data.token) {
         // google login failure, dispatch an action here
-        alert('Please log in to your Google account first')
+        alert("Please log in to your Google account first");
         // console.log('something happened')
-        return 
+        return;
       }
-      
+
       loginGoogle(event.data);
     };
-   
   };
   // const responseGoogle = (response) => {
   //   console.log(response)
   // }
   return (
     <React.Fragment>
-      <form id="login-form" onSubmit={handleLogin}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={state.username}
-          autoFocus
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        />
-        <button type="submit" disabled={loading}>
+      <Form id="login-form" onSubmit={handleLogin}>
+          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Control
+            type="text"
+            name="username"
+            value={state.username}
+            autoFocus
+            required
+            onChange={handleChange}
+          />
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            value={state.password}
+            required
+            onChange={handleChange}
+          />
+        <Button type="submit" disabled={loading}>
           Login
-        </button>
-        <p onClick={startAuthentication}>Login using Google</p>
-      </form>
+        </Button>
+        <Button onClick={startAuthentication}>Login using Google</Button>
+      </Form>
       {loading && <Loader />}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </React.Fragment>

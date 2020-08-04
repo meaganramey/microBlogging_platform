@@ -1,0 +1,10 @@
+.card{
+    width: 25vw;
+    margin: 0 auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 1rem;
+}
+.btn{
+    width: 100%;
+}
